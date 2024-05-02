@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "ServerInterface";
+
+package controller;
+
+service InputController {
+  rpc Send (stream InputRequest) returns (HandleResponse);
+}
+
+message InputRequest {
+  sint32 axis_x = 1;
+  sint32 axis_y = 2;
+}
+
+message HandleResponse {
+  bool success = 1;
+}
